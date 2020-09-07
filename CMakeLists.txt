@@ -592,6 +592,8 @@ if(UNIX)
       set(OPENCV_LINKER_LIBS ${OPENCV_LINKER_LIBS} m pthread)
     elseif(EMSCRIPTEN)
       # no need to link to system libs with emscripten
+    elseif(${CMAKE_SYSTEM_NAME} MATCHES "QNX")
+      set(OPENCV_LINKER_LIBS ${OPENCV_LINKER_LIBS} m)
     else()
       set(OPENCV_LINKER_LIBS ${OPENCV_LINKER_LIBS} dl m pthread rt)
     endif()
